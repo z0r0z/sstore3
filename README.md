@@ -4,6 +4,8 @@
 
 `sstore3` for example offers contract read and write storage for less than half the costs of standard `store`.
 
+<img width="626" alt="Screenshot 2024-07-14 at 7 44 45 PM" src="https://github.com/user-attachments/assets/f547dfb3-a2f9-4a9c-be15-dbc2f5699ed5">
+
 ## how
 
 `sstore3` consists of two chief methods that are native to addresses themselves: (1) the wei `balance` of an address, and (2) the `address` 0x itself for short-form data storage, such as price, status or contract type flags.
