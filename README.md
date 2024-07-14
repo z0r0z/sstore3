@@ -57,11 +57,11 @@ In such event, the token contract and the public would be able to sync this new 
 
 ## `address` method
 
-Data can be cheaply associated with and effectively stored into a contract through its 0x address.
+Data can also be cheaply associated with and effectively stored into a contract through its 0x address. For example, Uniswap V4 pool contracts [utilize the address profile](https://x.com/bantg/status/1668964281277136898) in order to determine configuration status.
 
-The `sstore3` address method anticipates using [`create2crunch`](https://github.com/0age/create2crunch) or similar address mining technique to locate and deploy bytecode to specific addresses that follow a protocol's storage conventions. `sstore3` is agnostic to how these conventions may themselves be developed, but a few examples may aid in understanding the application.
+In this similar fashion, `sstore3` address method anticipates using [`create2crunch`](https://github.com/0age/create2crunch) or similar address mining technique to locate and deploy bytecode to specific addresses that follow a protocol's storage conventions. `sstore3` is agnostic to how these conventions may themselves be developed, but a few examples may aid in understanding the application.
 
-For example, the address `0x000000004f5b1f858B5D96cc0d013b8867A5fF60` might contain arbitrary logic but calls to this logic can be framed according to a convention that follows the proposed `sstore3` address method.
+To illustrate, the address `0x000000004f5b1f858B5D96cc0d013b8867A5fF60` might contain arbitrary logic but calls to this logic can be framed according to a convention that follows the proposed `sstore3` address method.
 
 To illustrate further, consider that a calling contract might read this address from storage but then otherwise want more data in order to correctly call this address according to its protocol. Typically, this would involve another call or reading more data from local storage. 
 
@@ -93,6 +93,7 @@ test
 ## Notable Mentions
 
 - [sstore2](https://github.com/0xsequence/sstore2)
+- [univ4](https://x.com/bantg/status/1668964281277136898)
 
 ## Disclaimer
 
