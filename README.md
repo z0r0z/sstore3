@@ -57,7 +57,7 @@ In such event, the token contract and the public would be able to sync this new 
 
 ## `address` method
 
-Data can also be cheaply associated with and effectively stored into a contract through its 0x address. For example, Uniswap V4 pool contracts [utilize the address profile](https://x.com/bantg/status/1668964281277136898) in order to determine configuration status.
+Data can also be cheaply associated with and effectively stored into a contract through its 0x address. For example, Uniswap V4 pool contracts [utilize the address profile](https://x.com/bantg/status/1668964281277136898) in order to determine configuration status, and some contracts might [check whether an address starts with a certain number of zeros](https://github.com/Philogy/sub-zero-contracts/blob/main/src/VanityMarket.sol#L102) to flag if it should be treated as immutable by a contract.
 
 In this similar fashion, `sstore3` address method anticipates using [`create2crunch`](https://github.com/0age/create2crunch) or similar address mining technique to locate and deploy bytecode to specific addresses that follow a protocol's storage conventions. `sstore3` is agnostic to how these conventions may themselves be developed, but a few examples may aid in understanding the application.
 
