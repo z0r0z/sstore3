@@ -45,9 +45,9 @@ Here, the `onlyOwner` modifier should enforce the right to call this storage fun
 
 ### drawbacks
 
-The `sstore3` balance method can potentially be abused by self-destructing a contract in order to force a wei balance change on an otherwise guarded public contract.
+The `sstore3` balance method can potentially be abused by either self-destructing a contract or withdrawing consensus layer rewards in order to force a wei balance change on an otherwise guarded public contract.
 
-While this attack vector is fairly unlikely in many cases where there is no actual benefit to the attacker who would bear network costs, it should nonetheless be noted, pending hardfork or other network updates that might otherwise remove this possibility.
+Depending on the exact application this attack vector can span from a low-severity griefing attack to a critical vulnerability!
 
 #### counter
 
