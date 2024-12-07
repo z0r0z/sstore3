@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity ^0.8.19;
 
-import {sstore3} from "../src/sstore3.sol";
+import {sstore4} from "../src/sstore4.sol";
 import {Test} from "../lib/forge-std/src/Test.sol";
 
-contract sstore3Test is Test {
-    sstore3 internal test;
+contract sstore4Test is Test {
+    sstore4 internal test;
 
     function setUp() public payable {
-        test = new sstore3();
+        test = new sstore4();
     }
 
     function testStore() public payable {
