@@ -8,7 +8,7 @@
 
 ## how
 
-`sstore4` consists of two chief methods that are native to addresses themselves: (1) the wei `balance` of an address, and (2) the `address` 0x itself for short-form data storage, such as price, status or contract type flags.
+`sstore4` simply uses the wei `balance` of an address for short-form data storage.
 
 ## `balance` method
 
@@ -55,7 +55,9 @@ A safe example here, where these considerations still wouldn't matter, would be 
 
 In such event, the token contract and the public would be able to sync this new state the moment it receives a wei.
 
-## `address` method
+## See also (other useful contract native techniques)
+
+### `address` method
 
 Data can also be cheaply associated with and effectively stored into a contract through its 0x address. For example, Uniswap V4 pool contracts [utilize the address profile](https://x.com/bantg/status/1668964281277136898) in order to determine configuration status, and some contracts might [check whether an address starts with a certain number of zeros](https://github.com/Philogy/sub-zero-contracts/blob/main/src/VanityMarket.sol#L102) to flag if it should be treated as immutable by a contract.
 
@@ -68,6 +70,10 @@ To illustrate further, consider that a calling contract might read this address 
 Alternatively, and more efficiently, this protocol could be designed such that if an address has four leading `0` (`0x00000000`) bytes, rather than `1`, calls to such address will follow the ERC20 interface rather than the ERC721 interface. Additionally, the number `4` directly following might be a signifier to external applications that the callee contract is on its version `4` and includes a certain ABI format.
 
 The point in all of the above being, to reduce and remove any redundant bytecode or onchain interactions that can elaborate information about a contract by being contained in the contract address itself using `create2`.
+
+### `ztx` method (zero calldata programmability via least significant bits of msg.value)
+
+[Zero TX (ZTX)](https://github.com/z0r0z/ztx) is a gas optimization technique that enables lightweight programmability in smart contract interactions through the least significant bits of ETH transfers, eliminating the need for calldata.
 
 ## Getting Started
 
